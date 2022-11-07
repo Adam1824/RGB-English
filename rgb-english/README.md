@@ -12,3 +12,10 @@ This program is going to match english words to hexidecimal colour codes, from..
   - 7 = T
   - 8 = B
 4. Any words less than 6 characters have the rest of the value filled with 0's to make the colour, e.g **#CA7000**
+## Run the application
+pre requisite - download and install the latest version of Node.js
+1. Clone the repo
+2. In a terminal, navgiate to /rgb-english
+3. run 'npm start'
+4. Select either words.txt or words2.txt
+5. Click 'Generate HexValues' - words.txt takes around 9 seconds to render the hex values as the file has a lot of words :)

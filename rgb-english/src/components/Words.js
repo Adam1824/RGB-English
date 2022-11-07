@@ -28,26 +28,32 @@ class Words extends Component {
 
     showFile = async (e) => {
         e.preventDefault()
-        const reader = new FileReader()
-        reader.onload = async (e) => { 
-            const text = (e.target.result)
-            const words = text.split(/r?\n/);
-            let filteredWords = [];
-            let counter = 0;
-            words.forEach(word => {
-            const withoutLineBreak = word.replace(/[\r\n]/g, '');
-            if (withoutLineBreak.length <= 6 && withoutLineBreak.length >= 2) {
-                const word = {
-                    key: counter,
-                    word: withoutLineBreak
+        this.setState({
+            words: [],
+            totalHexValues: 0,
+            generateHexToggle: false
+        }, () => {
+            const reader = new FileReader()
+            reader.onload = async (e) => { 
+                const text = (e.target.result)
+                const words = text.split(/r?\n/);
+                let filteredWords = [];
+                let counter = 0;
+                words.forEach(word => {
+                const withoutLineBreak = word.replace(/[\r\n]/g, '');
+                if (withoutLineBreak.length <= 6 && withoutLineBreak.length >= 2) {
+                    const word = {
+                        key: counter,
+                        word: withoutLineBreak
+                    }
+                    filteredWords.push(word);
+                    counter++;
                 }
-                filteredWords.push(word);
-                counter++;
-            }
-            });
-            this.setState({ words: filteredWords })
-        };
-        reader.readAsText(e.target.files[0])
+                });
+                this.setState({ words: filteredWords })
+            };
+            reader.readAsText(e.target.files[0])
+        })
     }
 
     hexValueCounter() {
