@@ -5,12 +5,10 @@ This program is going to match english words to hexidecimal colour codes, from..
 ## Assumptions
 1. The word is between 2 and 6 characters
 2. A character will either be A-F or one of the following numbers that represents a letter
+  - 0 = O
   - 1 = I
-  - 3 = E
-  - 4 = A
   - 5 = S
   - 7 = T
-  - 8 = B
 4. Any words less than 6 characters have the rest of the value filled with 0's to make the colour, e.g **#CA7000**
 ## Run the application
 pre requisite - download and install the latest version of Node.js

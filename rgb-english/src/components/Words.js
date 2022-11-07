@@ -5,11 +5,8 @@ const VALID_LETTERS = ['a', 'b', 'c', 'd', 'e', 'f']
 const VALID_NUMBERS = [
     { letter: 'o', number: '0' },
     { letter: 'i', number: '1' },
-    { letter: 'e', number: '3' },
-    { letter: 'a', number: '4' },
     { letter: 's', number: '5' },
-    { letter: 't', number: '7' },
-    { letter: 'b', number: '8' }
+    { letter: 't', number: '7' }
 ];
 
 class Words extends Component {
