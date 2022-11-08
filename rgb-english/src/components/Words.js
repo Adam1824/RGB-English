@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Word from './Word';
 
 const VALID_LETTERS = ['a', 'b', 'c', 'd', 'e', 'f']
 const VALID_NUMBERS = [
@@ -99,8 +98,9 @@ class Words extends Component {
                 const hexValue = this.hexadecimalColourValue(word.word);
                 word.hexValue = hexValue;
             });
+            const validWords = words.filter(word => word.hexValue !== 'N/A');
             this.setState({ 
-                words,
+                words: validWords,
                 generateHexToggle: true
             })
         } else {
@@ -113,21 +113,36 @@ class Words extends Component {
 
     render = () => {
         return (
-        <div>
-            <input type="file" onChange={(e) => this.showFile(e)} />
-            <div>Total Words: {this.state.words.length}</div>
+            <div>
+            <input className="form-control form-control-sm" type="file" onChange={(e) => this.showFile(e)} />
             <div>Total HexValues: {this.state.totalHexValues}</div>
             {this.state.words.length > 0 &&
             <div>
-                <button onClick={this.generateHexValuesToggle}>Generate HexValues</button>
+                <button className="btn btn-primary btn-sm" onClick={this.generateHexValuesToggle}>Generate HexValues</button>
             </div>
             }
             {this.state.generateHexToggle &&
-            this.state.words.map(word => (
-            <div key={word.key}>
-                <Word word={word.word} hexValue={word.hexValue} />
+            <div>
+                <div>
+                    <table className="table bg-white">
+                    <thead>
+                    <tr>
+                        <th scope="col">Word</th>
+                        <th scope="col">Hex Value</th>
+                    </tr>
+                    </thead>
+                        {this.state.words.map(word => (
+                            <tbody>
+                                <tr>
+                                    <td>{word.word}</td>
+                                    <td>{word.hexValue}</td>
+                                </tr>
+                            </tbody>
+                        ))}
+                    </table>
+                </div>
             </div>
-            ))}
+            }
         </div>
         )
     }

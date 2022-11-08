@@ -3,12 +3,7 @@ import Words from './components/Words';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render = () => {
-
     return (<Words />)
   }
 }
