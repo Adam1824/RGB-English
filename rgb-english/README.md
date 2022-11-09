@@ -14,6 +14,7 @@ This program is going to match english words to hexidecimal colour codes, from..
 pre requisite - download and install the latest version of Node.js
 1. Clone the repo
 2. In a terminal, navgiate to /rgb-english
-3. run 'npm start'
-4. Select either words.txt or words2.txt
-5. Click 'Generate HexValues'
+3. run 'npm install'
+4. run 'npm start'
+5. Select either words.txt or words2.txt
+6. Click 'Generate HexValues'
